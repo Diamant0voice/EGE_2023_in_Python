@@ -76,3 +76,12 @@ print(F(24))
 print("№23:")  # 1620
 func23 = lambda start, end, exception: func23(start - 1, end, exception) + func23(start // 2, end, exception) if start > end and start != exception else start == end
 print(func23(50, 20, 10) * func23(20, 1, 10))  # Ради одного "не равно" буквами сорим, но что поделать
+
+print("№24:")  # 55
+with open('C:/for типовые 20 вариантов/24/24var03.txt') as file24:
+    f = file24.read().split('AB')
+    counterMin = float('inf')
+    for index in range(len(f)):
+        correct_string = ''.join(f[index:index + 21])
+        counterMin = min(counterMin, len(correct_string))
+    print(counterMin + 21 + 2)

@@ -136,17 +136,18 @@ print("№23:")  # 1956
 func23 = lambda start, end: func23(start - 1, end) + func23(start // 2, end) if start > end else start == end
 print(func23(60, 10) * func23(10, 2))
 
-print("№24:")
+print("№24:")  # 40
 with open('C:/for типовые 20 вариантов/24/24var02.txt') as file24:
     f = file24.read()  # читаем весь файл
     array = []  # Создаём пустой список, чтобы пихать туда удобоваримое
     counterMin = 1_000_000  # Ищешь минимальное - ставь колоссальное по умолчанию
     for index in range(len(f)):
-        if len(array) < 34:
-            array.append(index)
-        else:
-            counterMin = min(index - array[0] + 1, counterMin)
-            array = array[1:] + [index]
+        if f[index] == 'A':
+            if len(array) < 34:
+                array.append(index)
+            else:
+                counterMin = min(index - array[0] + 1, counterMin)
+                array = array[1:] + [index]
     print(counterMin)
 
 print("№25:")  # Ответ верный

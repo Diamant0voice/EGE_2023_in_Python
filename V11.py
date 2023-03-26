@@ -68,3 +68,14 @@ print(F(20))
 print("№23:")  # 72
 func23 = lambda start, end: func23(start - 1, end) + func23(start // 3, end) if start > end else start == end
 print(func23(33, 9) * func23(9, 1))
+
+print("№24:")  # 34
+with open('C:/for типовые 20 вариантов/24/24var09-13.txt') as file24:
+    f = file24.read()
+    counterMax = position = 0
+    for symbol in f:
+        if symbol != 'Z':
+            position += 1; counterMax = max(counterMax, position)
+        else:
+            position = 0
+    print(counterMax)

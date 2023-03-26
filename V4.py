@@ -67,3 +67,12 @@ print(F(39))
 print("№23:")  # 1760
 func23 = lambda start, end, exc: func23(start - 1, end, exc) + func23(start // 2, end, exc) if start > end and start != exc else start == end
 print(func23(60, 20, 4) * func23(20, 1, 4))
+
+print("№24:")  # 10007
+with open('C:/for типовые 20 вариантов/24/24var04.txt') as file24:
+    f = file24.read().split('AB')
+    counterMax = 0
+    for index in range(len(f)):
+        correct_string = ''.join(f[index:index + 22])
+        counterMax = max(counterMax, len(correct_string))
+    print(counterMax + 22 * 2)
