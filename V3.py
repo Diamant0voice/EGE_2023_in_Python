@@ -17,17 +17,18 @@ for holes in product([0, 1], repeat=5):
         for answer2 in permutations('yzwx'):
             print(*answer2, sep='') if [columns(**dict(zip(answer2, variables))) for variables in table] == F else None
 
-print("№5:")
-for N in range(1, 1000):
+print("№5:")  # 12
+for N in range(1, 300):
     B = bin(N)[2:]
-    if B[0] != '0' and len(B) % 2 == 0:
-        B += '1'  # но посередине
+    if len(B) % 2 == 0:
+        B = B[:len(B) // 2] + '1' + B[len(B) // 2:]  # Не совсем логично, но пихаем в середину 1
     R = int(B, 2)
-    print(N, "а само число такое", R) if R >= 26 else None
-    break
+    if R >= 26:
+        print(N, "а само число такое", R)
+        break
 
 print("№6:")  # 1200
-screensize(10000, 10000)
+'''screensize(10000, 10000)
 tracer(0)
 hideturtle()
 speed(10)
@@ -60,7 +61,16 @@ for X in range(-250 * scale, 250 * scale, scale):
 
 print(counter6)
 update()
-exitonclick()
+exitonclick()'''
+
+print("№8")  #
+counter = 0
+for let1, let2, let3, let4, let5, let6 in product("КНОРСЯ", repeat=6):
+    word = let1 + let2 + let3 + let4 + let5 + let6
+    counter += 1  # Здесь мы просто нумеруем слова, счётчик не функциональный
+    if word.count('К') <= 3 and word.count('Я') == 2:
+        print(counter, word)
+        break
 
 print("№16:")  # 887040
 @lru_cache(None)
@@ -83,5 +93,5 @@ with open('C:/for типовые 20 вариантов/24/24var03.txt') as file2
     counterMin = float('inf')
     for index in range(len(f)):
         correct_string = ''.join(f[index:index + 21])
-        counterMin = min(counterMin, len(correct_string))
+        counterMin = min(counterMin, len(correct_string))  # чота не 55, пофиксить
     print(counterMin + 21 + 2)

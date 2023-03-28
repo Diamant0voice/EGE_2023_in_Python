@@ -30,8 +30,7 @@ print("№6:")  # 882
 screensize(4000, 4000)
 tracer(0)
 hideturtle()  # Если рисунок ясен, можно скрыть исполнителя вовсе. Немного ускорит вывод
-speed(10)
-pensize(0.1)
+speed(10)  # Строка с толщиной пера также нужна была только для нас
 color("green", "red")
 scale = 60
 counter6 = 0
@@ -60,6 +59,14 @@ print(counter6)
 update()
 exitonclick()
 
+print("№8:")  # 174
+counter = 0
+for digits in product('0123', repeat=5):
+    number = ''.join(digits)
+    if number.count('3') == 1 and number[0] != '0' and all(number.count(fail) == 0 for fail in {'03', '30'}):
+        counter += 1
+print(counter)
+
 print("№12:")  # 1212122
 string = '22' + "1" * 2050 + '22'
 while '211' in string or '112' in string:
@@ -82,6 +89,18 @@ def in8(number):  # Альтернативное решение функцией
     return str(changed)
 print(in8(4**2022 - 6 * 4**522 + 5 * 64**510 - 3 * 2**330 - 100).count('7'))
 
+print('ТИП №15:')  # 80
+for A in range(1, 1000):
+    flag = True
+    for x in range(1, 100000):
+        logic = ((x % 20 == 0) <= (x % 11 != 0)) or (x + A >= 300)
+        if logic == False:
+            flag = False
+            break
+    if flag == True:
+        print(A)
+        break
+
 print("№16:")  # 987
 @lru_cache(None)
 def F(n):
@@ -92,6 +111,17 @@ def F(n):
     elif n > 2 and n % 2 != 0:
         return 3 * (n + 1) + F(n - 2) - 2
 print(F(35))
+
+print("17:")  # 4 9994000936
+counter = squares = 0
+with open('C:/for типовые 20 вариантов/17/17var02.txt') as file17:
+    file17 = [int(num) for num in file17]
+    maximum = max(file17)
+    for number, number_next in zip(file17, file17[1:]):
+        if number + number_next == maximum:
+            counter += 1
+            squares = max(squares, number ** 2 + number_next ** 2)
+print(counter, squares)
 
 print("№19:")  # 150
 def heap19(rocks1, positions):
