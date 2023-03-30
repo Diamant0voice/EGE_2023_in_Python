@@ -89,15 +89,13 @@ def in8(number):  # Альтернативное решение функцией
     return str(changed)
 print(in8(4**2022 - 6 * 4**522 + 5 * 64**510 - 3 * 2**330 - 100).count('7'))
 
-print('ТИП №15:')  # 80
-for A in range(1, 1000):
-    flag = True
-    for x in range(1, 100000):
-        logic = ((x % 20 == 0) <= (x % 11 != 0)) or (x + A >= 300)
-        if logic == False:
-            flag = False
-            break
-    if flag == True:
+print('№15:')  # 80
+def logic(x, A):  # Альтернативный способ, пошустрее: создаём функцию под выражение
+    return ((x % 20 == 0) <= (x % 11 != 0)) or (x + A >= 300)
+
+
+for A in range(1, 1000): 
+    if all(logic(x, A) for x in range(1, 1000)): # Перебираем удачные варианты для подстановки
         print(A)
         break
 
@@ -112,7 +110,7 @@ def F(n):
         return 3 * (n + 1) + F(n - 2) - 2
 print(F(35))
 
-print("17:")  # 4 9994000936
+print("№17:")  # 4 9994000936
 counter = squares = 0
 with open('C:/for типовые 20 вариантов/17/17var02.txt') as file17:
     file17 = [int(num) for num in file17]
@@ -170,14 +168,14 @@ print("№24:")  # 40
 with open('C:/for типовые 20 вариантов/24/24var02.txt') as file24:
     f = file24.read()  # читаем весь файл
     array = []  # Создаём пустой список, чтобы пихать туда удобоваримое
-    counterMin = 1_000_000  # Ищешь минимальное - ставь колоссальное по умолчанию
+    counterMin = float('inf')  # Ищешь минимальное значение - ставь колоссальное по умолчанию, бесконечность тоже в тему
     for index in range(len(f)):
         if f[index] == 'A':
             if len(array) < 34:
-                array.append(index)
+                array.append(index) # Пихаем в список букву, если есть место
             else:
-                counterMin = min(index - array[0] + 1, counterMin)
-                array = array[1:] + [index]
+                counterMin = min(index - array[0] + 1, counterMin)  # Закрепляем найденный минимум  
+                array = array[1:] + [index]  # сдивигаемся далее
     print(counterMin)
 
 print("№25:")  # Ответ верный

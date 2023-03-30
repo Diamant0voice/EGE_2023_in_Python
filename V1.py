@@ -108,7 +108,7 @@ print(int(all_pass))
 
 print('ТИП №12:')  # Ответ: 121222
 string = '22' + '1' * 2023 + '22'
-while '211' in string or '112' in string:
+while '211' in string or '112' in string: # ОЧЕНЬ важно именно приравнивать строку новому результату, и делать по одной замене зараз
     string = string.replace('11', '1', 1); string = string.replace('21', '12', 1) if '21' in string else string.replace('12', '1', 1)
 print(string)
 
@@ -202,14 +202,14 @@ with open('C:/for типовые 20 вариантов/24/24var01.txt', "r") as 
     file = file24.read()
     sym1, sym2, sym3 = 1, 2, 3  # Нам нужно 3 символа подряд
     counterMax = position = 3  # ОТКРЫВ файл, видим, что уже первые 3 удовл. усл.; Сразу их учтём (да, так тоже можно)
-    for index in range(3, len(file)):
+    for index in range(3, len(file)):  # Нумеруем символы
         if file[index] == 'A':
-            position = index - sym1
-            counterMax = max(counterMax, position)  # обнуляем счётчик
-            sym1, sym2, sym3 = sym2, sym3, index  
+            position = index - sym1  # Укорачиваем наш "поисковик"
+            counterMax = max(counterMax, position)  # Фиксируем находку
+            sym1, sym2, sym3 = sym2, sym3, index  # Сдвигаемся
         else:
-            position += 1
-            counterMax = max(counterMax, position)
+            position += 1  # Удлинняем поисковую полосу
+            counterMax = max(counterMax, position)  
 print(counterMax)
 
 print('№25:')  # Ответ верный

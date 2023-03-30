@@ -63,14 +63,42 @@ print(counter6)
 update()
 exitonclick()'''
 
-print("№8")  #
+print("№8")  # 72
 counter = 0
-for let1, let2, let3, let4, let5, let6 in product("КНОРСЯ", repeat=6):
+for let1, let2, let3, let4, let5, let6 in product("КНОРСЯ", repeat=6):  # Считываем алфавит ИЗ ПРИМЕРА
     word = let1 + let2 + let3 + let4 + let5 + let6
     counter += 1  # Здесь мы просто нумеруем слова, счётчик не функциональный
     if word.count('К') <= 3 and word.count('Я') == 2:
         print(counter, word)
         break
+
+print("№12:")  # 121222
+string12 = '22' + '1' * 2024 + '22'
+while '2111' in string12 or '1112' in string12:
+    string12 = string12.replace('111', '1', 1)
+    string12 = string12.replace('21', '12', 1) if '21' in string12 else string12.replace('12', '1', 1)
+print(string12)
+
+print("№14:") # 1071
+bruh = 243**540 - 6 * 9**530 + 21 * 3**511 - 3 * 3**70 - 200
+counter = 0
+while bruh > 0:
+    if bruh % 9 == 8:
+        counter += 1
+    bruh //= 9
+print(counter)
+
+print("№15:")  # 24
+def treug(n, m, k):
+    return n + m > k and n + k > m and m + k > n  # функция по смыслу, кукож тот ещё
+
+
+for A in range(1, 1000):
+    while True:  # Как в предыдущем варианте, только НЕ МАКС изменили по смыслу (из примечания)
+        if all(not((treug(x, 11, 18) == (max(x, 5) <= 15)) and (treug(x, A, 5))) for x in range(1, 1000)):
+            print(A)
+        break
+    A  -= 1  # Чтобы прога не уходила в отрицательные числа из-за ТРЕУГ функции
 
 print("№16:")  # 887040
 @lru_cache(None)
