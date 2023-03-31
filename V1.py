@@ -148,10 +148,10 @@ counter = squares = 0
 with open('C:/for типовые 20 вариантов/17/17var01.txt', "r") as file17:
     file17 = [int(num) for num in file17]  # Генератор списков. Этот все числа в файле перегоняет в список
     maximum = max(file17)  # Ищем наибольшее число
-    for number, number_next in zip(file17, file17[1:]):  # Процесс смещения по строчке
+    for number, number_next in zip(file17, file17[1:]):  # Процесс смещения по строчке (для пар, но всё аналогично)
         if number + number_next == maximum:  # Здесь сами критерии поиска, меняются каждую задачу
             counter += 1
-            squares = max(squares, number ** 2 + number_next ** 2)  # max с заданным
+            squares = max(squares, number ** 2 + number_next ** 2)  # Ищем ВСЕГДА между последним и поступившим в функцию значением
 print(counter, squares)
 
 print('№19:')  # Ответ: 114

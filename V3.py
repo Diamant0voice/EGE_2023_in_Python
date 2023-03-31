@@ -98,7 +98,7 @@ for A in range(1, 1000):
         if all(not((treug(x, 11, 18) == (max(x, 5) <= 15)) and (treug(x, A, 5))) for x in range(1, 1000)):
             print(A)
         break
-    A  -= 1  # Чтобы прога не уходила в отрицательные числа из-за ТРЕУГ функции
+    A  -= 1  # Чтобы прога не уходила в отрицательные числа из-за особенностей ТРЕУГ функции
 
 print("№16:")  # 887040
 @lru_cache(None)
@@ -110,6 +110,18 @@ def F(n):
     elif n > 2 and n > 2 and n % 2 == 0:
         return sum(F(i) for i in range(1, n))  # Преобразуем сигму по смыслу, ничего особенного
 print(F(24))
+
+print("№17")  # 203
+counter = sums = 0
+with open('C:/for типовые 20 вариантов/17/17var03.txt') as file17:
+    sequence = [int(numbers) for numbers in file17]
+    maximum = max(number for number in sequence)
+    for elem1, elem2, elem3 in zip(sequence, sequence[1:], sequence[2:]):
+        last_digits = str(elem1 % 10) + str(elem2 % 10) + str(elem3 % 10)
+        if last_digits.count('0') == 1 and elem1 + elem2 + elem3 < maximum:
+            counter += 1
+            sums = max(
+    print(counter)
 
 print("№23:")  # 1620
 func23 = lambda start, end, exception: func23(start - 1, end, exception) + func23(start // 2, end, exception) if start > end and start != exception else start == end
