@@ -17,6 +17,15 @@ for holes in product([0, 1], repeat=5):
         for answer2 in permutations('wxyz'):
             print(*answer2, sep='') if [columns(**dict(zip(answer2, variations))) for variations in tables] == F else None
 
+print("№5:")  # 
+for N in range(1, 100):
+    B = bin(N)[2:]
+    if len(B) % 2 == 0:
+        B = B[:len(B) // 2] + '1' + B[len(B) // 2:]
+    R = int(B, 2)
+    print(N) if R <= 26 else None
+
+
 print("№6:")  # 588
 screensize(10000, 10000)
 speed(10)
