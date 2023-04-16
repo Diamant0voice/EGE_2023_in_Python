@@ -171,9 +171,9 @@ with open('C:/for типовые 20 вариантов/24/24var03.txt') as file2
     f = file24.read().split('AB')
     counterMin = float('inf')
     for index in range(len(f)):
-        correct_string = ''.join(f[index:index + 21])
-        counterMin = min(counterMin, len(correct_string))  # чота не 55, пофиксить
-    print(counterMin + 21 * 2)
+        correct_string = ''.join(f"[index:index + 19")
+        counterMin = min(counterMin, len(correct_string))  # Всё ещё ничё не понятно
+    print(counterMin + 19 * 2)
 
 print("№25:")  # Ответ верный
 digits = '0123456789'
@@ -182,5 +182,7 @@ for length in range(4):
         for question_mark in digits:
             mask = int(f"32{''.join(asterisk)}21{question_mark}4")
             print(mask, mask // 2049) if mask % 2049 == 0 else None
+ 
+print("№26:")  # 
 
 print("№27:")  # 

@@ -18,6 +18,8 @@ for holes in product((0, 1), repeat=6):
         for answer2 in permutations('yxwz'):
             print(*answer2, sep='') if [columns(**dict(zip(answer2, variations))) for variations in table] == F else None
 
+print("№5:")  # 
+
 print("№6:")  # 269
 screensize(5000, 5000)
 ht()
@@ -48,6 +50,14 @@ print(counter6)
 update()
 exitonclick()
 
+print("№8:")  # 
+
+print("№12:")  # 
+
+print("№14:")  # 
+
+print("№15:")  # 
+
 print("№16:")  # 43
 @lru_cache(None)
 def F(n):
@@ -61,6 +71,22 @@ def F(n):
         return (5 * n + F(n - 1) + F(n - 2)) // 7
 print(F(50))
 
+print("№17:")  # 
+
+print("№19:")  # 
+
+print("№20:")  # 
+
+print("№21:")  # 
+
 print("№23:")  # 12
 func23 = lambda start, end, exc: func23(start + 1, end, exc) + func23(start * 2, end, exc) if start < end and start != exc else start == end
 print(func23(3, 12, 23) * func23(12, 27, 23))
+
+print("№24:")  # 
+
+print("№25:")  # 
+
+print("№26:")  # 
+
+print("№27:")  # 

@@ -20,6 +20,7 @@ for holes in product([0, 1], repeat=9):
         for answer2 in permutations('xywz'):
             print(*answer2, sep='') if [columns(**dict(zip(answer2, variations))) for variations in table] == F else None
 
+print("№5:")  # 
 
 print("№6:")  # 250
 screensize(4000, 4000)
@@ -55,11 +56,17 @@ print(counter6)
 update()
 exitonclick()
 
+print("№8:")  # 
+
+print("№12:")  # 
+
 print("№14:")  # 187162
 for X in "0123456789ABCDEFGHIJKLMNOP":
     for Y in "0123456789ABCDEFGHIJKLMNOP":
         operand = int(f'13{Y}{X}5', 26) + int(f'24{Y}13', 26)
         print(operand // 8) if operand % 8 == 0 and Y == '2' else None
+
+print("№15:")  # 
 
 print("№16:")  # 884
 @lru_cache(None)
@@ -74,6 +81,22 @@ def F(n):
         return 2 * n + F(n - 2)
 print(F(42))
 
+print("№17:")  # 
+
+print("№19:")  # 
+
+print("№20:")  # 
+
+print("№21:")  # 
+
 print("№23:")  # 16
 func23 = lambda start, end: func23(start + 5, end) + func23(start + 4, end) + func23(start * 3, end) if start < end else start == end
 print(func23(2, 6) * func23(6, 30))
+
+print("№24:")  # 
+
+print("№25:")  # 
+
+print("№26:")  # 
+
+print("№27:")  # 

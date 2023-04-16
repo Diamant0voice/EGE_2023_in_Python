@@ -19,7 +19,7 @@ for holes in product([0, 1], repeat=7):
 
 print("№5:")  # 946
 for N in range(100, 1000):
-    dig1 = N // 100; dig2 = N // 10 % 10; dig3 = N % 10  # Остатком отщепляем последнюю цифру, целым - первую
+    dig1 = N // 100; dig2 = N // 10 % 10; dig3 = N % 10  # Остатком отщепляем последнюю цифру, цельняком - первую
     sum1 = dig1**2 + dig2**2; sum2 = dig2**2 + dig3**2
     output = str(max(sum1, sum2)) + str(min(sum1, sum2))  # Соединяем части, а не просто складываем
     if output == '9752':
@@ -53,6 +53,8 @@ print(counter6)
 update()
 exitonclick()
 
+print("№8:")  # 
+
 print("№10:")  # 5
 kr = 0  # ну а почему бы и нет?
 with open('C:/for типовые 20 вариантов/10/Отцы и дети.txt', 'r') as book:
@@ -60,6 +62,12 @@ with open('C:/for типовые 20 вариантов/10/Отцы и дети.t
         if "Деньги" in word or "деньги" in word:
             kr += 1
 print(kr)
+
+print("№12:")  # 
+
+print("№14:")  # 
+
+print("№15:")  # 
 
 print("№16:")  # 2214271
 @lru_cache(None)
@@ -72,6 +80,22 @@ def F(n):
         return 3 * F(n - 1)
 print(F(23))
 
+print("№17:")  # 
+
+print("№19:")  # 
+
+print("№20:")  # 
+
+print("№21:")  # 
+
 print("№23:")  # 639
 func23 = lambda start, end: func23(start + 2, end) + func23(start + 7, end) if start < end else start == end
 print(func23(5, 49))
+
+print("№24:")  # 
+
+print("№25:")  # 
+
+print("№26:")  # 
+
+print("№27:")  # 

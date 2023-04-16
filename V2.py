@@ -183,3 +183,7 @@ for length in range(4):
     for random_digit in product('0123456789', repeat=length):
         mask = int(f"32{''.join(random_digit)}823")
         print(mask, mask // 123) if mask % 123 == 0 else None
+
+print("№26:")  # 
+
+print("№27:")  # 

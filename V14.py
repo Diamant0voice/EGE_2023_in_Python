@@ -18,6 +18,8 @@ for holes in product((0, 1), repeat=7):
         for answer2 in permutations('wyzx'):
             print(*answer2, sep='') if [columns(**dict(zip(answer2, variations))) for variations in table] == F else None
 
+print("№5:")  # 
+
 print("№6:")  # 125
 screensize(6000, 6000)
 speed(10)
@@ -55,10 +57,16 @@ print(counter6)
 update()
 exitonclick()
 
+print("№8:")  # 
+
+print("№12:")  # 
+
 print("№14:")  # 101340
 for X in '0123456789ABCDEFG':
     operand = int(f'135{X}9', 17) + int(f'9{X}531', 17)
     print(operand // 9) if operand % 9 == 0 else None # В ответ уйдёт последнее, наибольшее
+
+print("№15:")  # 
 
 print("№16:")  # 3216449665440
 @lru_cache(None)
@@ -71,6 +79,22 @@ def F(n):
         return n * (n - 1) * F(n - 1)
 print(int(F(123) / F(120)))
 
+print("№17:")  # 
+
+print("№19:")  # 
+
+print("№20:")  # 
+
+print("№21:")  # 
+
 print("№23:")  # 30
 func23 = lambda start, end: func23(start + 2, end) + func23(start * 2, end) + func23(start * 3, end) if start < end else start == end
 print(func23(2, 6) * func23(6, 28))
+
+print("№24:")  # 
+
+print("№25:")  # 
+
+print("№26:")  # 
+
+print("№27:")  # 

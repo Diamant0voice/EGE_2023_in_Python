@@ -18,6 +18,8 @@ for holes in product([0, 1], repeat=5):
         for answer2 in permutations('zxwy'):
             print(*answer2, sep='') if [columns(**dict(zip(answer2, variables))) for variables in table] == F else None
 
+print("№5:")  # 
+
 print("№6:")  # Ответ: 315, в сборнике опечатка. Размером с задание.
 screensize(7000, 7000)
 speed(10)
@@ -55,6 +57,14 @@ print(counter6)
 update()
 exitonclick()
 
+print("№8:")  # 
+
+print("№12:")  # 
+
+print("№14:")  # 
+
+print("№15:")  # 
+
 print("№16:")  # 49197
 @lru_cache(None)
 def F(n):
@@ -66,6 +76,22 @@ def F(n):
         return F(n - 1) + 2 * F(n - 2)
 print(F(19))
 
+print("№17:")  # 
+
+print("№19:")  # 
+
+print("№20:")  # 
+
+print("№21:")  # 
+
 print("№23:")  # 54
 func23 = lambda start, end: func23(start - 1, end) + func23(start // 3, end) if start > end else start == end
 print(func23(37, 10) * func23(10, 2))
+
+print("№24:")  # 
+
+print("№25:")  # 
+
+print("№26:")  # 
+
+print("№27:")  # 

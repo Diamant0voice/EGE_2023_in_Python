@@ -17,6 +17,8 @@ for holes in product([0, 1], repeat=5):
         for answer2 in permutations('xyzw'):
             print(*answer2, sep='') if [columns(**dict(zip(answer2, variations)))for variations in table] == F else None
 
+print("№5:")  # 
+
 print("№6:")  # 101
 screensize(4000, 4000)
 tracer(0)
@@ -54,6 +56,14 @@ print(counter6)
 update()
 exitonclick()
 
+print("№8:")  # 
+
+print("№12:")  # 
+
+print("№14:")  # 
+
+print("№15:")  # 
+
 print("№16:")  # 78731
 @lru_cache(None)
 def F(n):
@@ -64,6 +74,14 @@ def F(n):
     elif n > 1 and n % 2 != 0:
         return 2 * F(n - 1) + F(n - 2)
 print(F(20))
+
+print("№17:")  # 
+
+print("№19:")  # 
+
+print("№20:")  # 
+
+print("№21:")  # 
 
 print("№23:")  # 72
 func23 = lambda start, end: func23(start - 1, end) + func23(start // 3, end) if start > end else start == end
@@ -79,3 +97,9 @@ with open('C:/for типовые 20 вариантов/24/24var09-13.txt') as fi
         else:
             position = 0
     print(counterMax)
+
+print("№25:")  # 
+
+print("№26:")  # 
+
+print("№27:")  # 

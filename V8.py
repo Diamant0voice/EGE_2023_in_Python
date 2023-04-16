@@ -17,6 +17,8 @@ for holes in product([0, 1], repeat=7):
         for answer2 in permutations('xywz'):
             print(*answer2, sep='') if [columns(**dict(zip(answer2, variations))) for variations in table] == F else None
 
+print("№5:")  # 
+
 print("№6:")  # 922
 screensize(10000, 10000)
 ht()
@@ -47,7 +49,13 @@ exitonclick()
 
 print("№8:")  # 
 print(len([digits for digits in product('01234567', repeat=5) if digits[0] != '0' and digits.count('4') == 2
-   and all('4' + fail  not in (number := ''.join(digits)) and fail + '4' not in number for fail in '1357')]))
+   and all('4' + fail not in (number := ''.join(digits)) and fail + '4' not in number for fail in '1357')]))
+
+print("№12:")  # 
+
+print("№14:")  # 
+
+print("№15:")  # 
 
 print("№16:")  # 13441735782
 def F(n):
@@ -59,6 +67,22 @@ def F(n):
         return 2 * F(n - 1)
 print(F(12))
 
+print("№17:")  # 
+
+print("№19:")  # 
+
+print("№20:")  # 
+
+print("№21:")  # 
+
 print("№23:")  # 4085
 func23 = lambda start, end: func23(start + 2, end) + func23(start + 10, end) if start < end else start == end
 print(func23(7, 71))
+
+print("№24:")  # 
+
+print("№25:")  # 
+
+print("№26:")  # 
+
+print("№27:")  # 

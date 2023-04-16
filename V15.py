@@ -18,6 +18,8 @@ for holes in product({0, 1}, repeat=7):  # да. скобы не важны, г�
         for answer2 in permutations('xyzw'):
             print(*answer2, sep='') if [columns(**dict(zip(answer2, variations))) for variations in table] == F else None
 
+print("№5:")  # 
+
 print("№6:")  # 391
 screensize(10000, 10000)
 speed(10)
@@ -52,12 +54,18 @@ print(counter6)
 update()
 exitonclick()
 
+print("№8:")  # 
+
+print("№12:")  # 
+
 print("№14:")  # 47594
-print(ascii_uppercase)  # Забыли алфавитный порядок латиницы? Выведите её на экран!
+print(ascii_uppercase)  # Забыли алфавитный порядок латиницы? Выведите её на экран b и копируйте!
 for X in "0123456789ABCDEFGHIJK":
     for Y in "0123456789ABCDEFGHIJK":
         operand = int(f'12{Y}{X}9', 21) + int(f'36{Y}99', 21)
-        print(operand // 18) if operand % 18 == 0 and Y == "5" else None  # Y - строковый тип, и вся прога - о строках, помним
+        print(operand // 18) if operand % 18 == 0 and Y == "5" else None  # Y - строковый тип, и вся прога - о строках, помним 
+
+print("№15:")  #
 
 print("№16:")  # 1450
 @lru_cache(None)
@@ -72,6 +80,22 @@ def F(n):
         return 3 * n + F(n - 2)
 print(F(43))
 
+print("№17:")  # 
+
+print("№19:")  # 
+
+print("№20:")  # 
+
+print("№21:")  # 
+
 print("№23:")  # 58
 func23 = lambda start, end: func23(start + 3, end) + func23(start + 4, end) + func23(start * 3, end) if start < end else start == end
 print(func23(1, 7) * func23(7, 30))
+
+print("№24:")  # 
+
+print("№25:")  # 
+
+print("№26:")  # 
+
+print("№27:")  # 

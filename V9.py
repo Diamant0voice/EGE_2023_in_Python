@@ -56,6 +56,14 @@ print(counter6)
 update()
 exitonclick()
 
+print("№8:")  # 
+
+print("№12:")  # 
+
+print("№14:")  # 
+
+print("№15:")  # 
+
 print("№16:")  # 9841
 @lru_cache(None)
 def F(n):
@@ -67,6 +75,22 @@ def F(n):
         return 1 + 3 * F(n - 2)
 print(F(17))
 
+print("№17:")  # 
+
+print("№19:")  # 
+
+print("№20:")  # 
+
+print("№21:")  # 
+
 print("№23:")  # 360
 func23 = lambda start, end: func23(start - 1, end) + func23(start // 2, end) if start > end else start == end
 print(func23(30, 10) * func23(10, 1))
+
+print("№24:")  # 
+
+print("№25:")  # 
+
+print("№26:")  # 
+
+print("№27:")  # 

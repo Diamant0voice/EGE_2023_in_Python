@@ -18,6 +18,8 @@ for holes in product([0, 1], repeat=7):
         for answer2 in permutations('xyzw'):
             print(*answer2, sep='') if [columns(**dict(zip(answer2, variations)))for variations in table] == F else None
 
+print("№5:")  # 
+
 print("№6:")  # 91
 screensize(10000, 10000)
 speed(15)
@@ -55,10 +57,16 @@ print(counter6)
 update()
 exitonclick()
 
+print("№8:")  # 
+
+print("№12:")  # 
+
 print("№14:")  # 31027
 for X in "0123456789ABCDE":  # Цифр всего 10, дальше ЗАГЛАВНЫЕ буквы латиницы
     operand = int(f'135{X}7', 15) + int(f'7{X}531', 15)  # перебираем X из символов 15 сс, вставляя в переводимые в 10 сс операнды
     print(operand // 14) if operand % 14 == 0 else None  # И выбираем первое, break тут не в тему
+
+print("№15:")  # 
 
 print("№16:")  # 88120680
 @lru_cache(None)
@@ -69,6 +77,22 @@ def F(n):
         return n * F(n - 1)
 print(int(F(446) / F(443)))
 
+print("№17:")  # 
+
+print("№19:")  # 
+
+print("№20:")  # 
+
+print("№21:")  # 
+
 print("№23:")  # 40
 func23 = lambda start, end: func23(start + 2, end) + func23(start * 2, end) + func23(start * 3, end) if start < end else start == end
 print(func23(1, 6) * func23(6, 24))
+
+print("№24:")  # 
+
+print("№25:")  # 
+
+print("№26:")  # 
+
+print("№27:")  # 

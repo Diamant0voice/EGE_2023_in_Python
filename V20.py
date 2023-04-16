@@ -18,6 +18,8 @@ for holes in product((0, 1), repeat=6):
         for answer2 in permutations('wxzy'):
             print(*answer2, sep='') if [columns(**dict(zip(answer2, variations))) for variations in table] == F else None
 
+print("№5:")  # 
+
 print('№6:')  # Ответ: 64
 screensize(4000, 4000)
 ht()
@@ -45,7 +47,6 @@ update()
 exitonclick()
 # По ЗАДУМКЕ, так решаться должно было всё, но по факту, данный способ актуален лишь пару раз, да и не стоит он затрачиваемых усилий.
 
-
 print("№10:")  # 2
 kr = 0
 with open('C:/for типовые 20 вариантов/10/Отцы и дети.txt', 'r') as book:
@@ -53,6 +54,14 @@ with open('C:/for типовые 20 вариантов/10/Отцы и дети.t
         if "Россия" in word:
             kr += 1
 print(kr)
+
+print("№8:")  # 
+
+print("№12:")  # 
+
+print("№14:")  # 
+
+print("№15:")  # 
 
 print("№16:")  # 50
 @lru_cache(None)
@@ -67,7 +76,22 @@ def F(n):
         return (4 * n + F(n - 1) + F(n - 2)) // 7
 print(F(52))
 
+print("№17:")  # 
+
+print("№19:")  # 
+
+print("№20:")  # 
+
+print("№21:")  # 
 
 print("№23:")  # 28
 func23 = lambda start, end, exc: func23(start + 1, end, exc) + func23(start * 2, end, exc) if start < end and start != exc else start == end
 print(func23(2, 10, 19) * func23(10, 26, 19))
+
+print("№24:")  # 
+
+print("№25:")  # 
+
+print("№26:")  # 
+
+print("№27:")  # 

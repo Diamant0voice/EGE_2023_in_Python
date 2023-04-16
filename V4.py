@@ -17,7 +17,7 @@ for holes in product([0, 1], repeat=5):
         for answer2 in permutations('wxyz'):
             print(*answer2, sep='') if [columns(**dict(zip(answer2, variations))) for variations in tables] == F else None
 
-print("№5:")  # 
+print("№5:")  # 26
 for N in range(1, 100):
     B = bin(N)[2:]
     if len(B) % 2 == 0:
@@ -62,6 +62,42 @@ print(counter6)
 update()
 exitonclick()
 
+print("№8:")  # 1599
+counter = 0
+for let1, let2, let3, let4, let5, let6 in product('АЗЛОПЬ', repeat=6):
+    counter += 1
+    word = let1 + let2 + let3 + let4 + let5 + let6
+    if word.count('Ь') <= 1 and word.count('А') == 1 and word.count('З') <= 2:
+        print(counter, word)
+        break
+
+print("№12:")  # 1121211
+string = '22' + '1' * 2023
+while '2111' in string or '1112' in string:
+    string = string.replace('111', '1', 1)
+    string = string.replace('21', '12', 1) if '21' in string else string.replace('12', '1', 1)
+print(string)
+
+print("№14:")  # 1236
+cringe = 1331**650 - 55 * 121**610 + 77 * 11 **510 - 3 * 11**100 - 221
+counter = 0
+while cringe > 0:
+    counter += 1 if cringe % 11 == 10 else 0  # Разводка десятичным эквивалентом буквы относительно её положения в 16-ричной с.с.
+    cringe //= 11
+print(counter)
+
+print("№15:")  # 6
+def treug(n, m, k):
+    return n + m > k and n + k > m and m + k > n
+
+
+for A in range(1, 1000):
+    while True:
+        if all(not((treug(x, 12, 20) == (max(x,5) <= 28)) and treug(x, A, 3)) for x in range(1, 1000)):
+               print(A)
+        break
+    A -= 1
+
 print("№16:")  # 41518080
 @lru_cache(None)
 def F(n):
@@ -72,6 +108,24 @@ def F(n):
     elif n > 2 and n % 2 == 0:
         return sum(F(i) for i in range(1, n))
 print(F(39))
+
+print("№17:")  # 2936 75058186
+counter, trio_min = 0, float('inf')
+with open('C:/for типовые 20 вариантов/17/17var04.txt') as file17:
+    sequence = [int(num) for num in file17]
+    maximum = max(number for number in sequence)
+    for elem1, elem2, elem3 in zip(sequence, sequence[1:], sequence[2:]):
+        last_digits = str(elem1 % 10) + str(elem2 % 10) + str(elem3 % 10)
+        if last_digits.count('3') == 0 and elem1**2 + elem2**2 + elem3**2 > maximum:
+            counter += 1
+            trio_min = min(trio_min, elem1**2 + elem2**2 + elem3**2)
+    print(counter, trio_min)
+
+print("№19:")  # 
+
+print("№20:")  # 
+
+print("№21:")  # 
 
 print("№23:")  # 1760
 func23 = lambda start, end, exc: func23(start - 1, end, exc) + func23(start // 2, end, exc) if start > end and start != exc else start == end
@@ -85,3 +139,15 @@ with open('C:/for типовые 20 вариантов/24/24var04.txt') as file2
         correct_string = ''.join(f[index:index + 22])
         counterMax = max(counterMax, len(correct_string))
     print(counterMax + 22 * 2)
+
+print("№25:")  # Ответ верный
+digits = '0123456789'
+for length in range(4):
+    for asterisk in product(digits, repeat=length):
+        for question_mark in digits:
+            mask = int(f"33{''.join(asterisk)}21{question_mark}7")
+            print(mask, mask // 2079) if mask % 2079 == 0 else None
+
+print("№26:")  # 
+
+print("№27:")  # 
