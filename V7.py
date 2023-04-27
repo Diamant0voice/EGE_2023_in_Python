@@ -78,9 +78,21 @@ print("23:")  # 5411
 func23 = lambda start, end: func23(start + 2, end) + func23(start + 10, end) if start < end else start == end
 print(func23(5, 71))
 
-print("№24:")  # 
+print("№24:")  # 532
 
-print("№25:")  # 
+print("№25:")  # Ответ верный
+def divs(number):
+    s = set()
+    for divider in range(2, int(number ** 0.5) + 1):
+        if number % divider == 0:
+            s.add(divider); s.add(number // divider)
+    return sorted(s)
+
+for number in range(799_999, 790_000, -1):
+    d = divs(number)
+    if len(d) > 0:
+        M = max(d) - min(d)
+        print(number, M) if M % 17 == 0 else None
 
 print("№26:")  # 
 

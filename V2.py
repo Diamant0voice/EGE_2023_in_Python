@@ -30,7 +30,7 @@ print("№6:")  # 882
 screensize(4000, 4000)
 tracer(0)
 hideturtle()  # Если рисунок ясен, можно скрыть исполнителя вовсе. Немного ускорит вывод
-speed(10)  # Строка с толщиной пера также нужна была только для нас
+speed(10)
 color("green", "red")
 scale = 60
 counter6 = 0
@@ -83,27 +83,27 @@ def in8(number):  # Альтернативное решение функцией
     convert = changed = " "
     while number > 0:
         convert += str(number % sys); number //= sys
-    convert = list(reversed(convert))  # Элемент [-1] (последний) становится [0] (первым), и так со всеми
+    convert = list(reversed(convert))  # Элемент [-1] (последний) становится [0] (первым), и так со всеми, типа [::-1]
     for digits in range(len(convert)):
         changed += convert[digits]
     return str(changed)
 print(in8(4**2022 - 6 * 4**522 + 5 * 64**510 - 3 * 2**330 - 100).count('7'))
 
 print('№15:')  # 80
-def del(x, A):  # Альтернативный способ, пошустрее: создаём функцию под выражение
+def logic(x, A):
     return ((x % 20 == 0) <= (x % 11 != 0)) or (x + A >= 300)
 
-
-for A in range(1, 1000): 
-    if all(del(x, A) for x in range(1, 1000)): # Перебираем удачные варианты для подстановки
+for A in range(1, 1000):
+    if all(logic(x, A) for x in range(1, 1000)):
         print(A)
         break
+    A -= 1
 
 print("№16:")  # 987
 @lru_cache(None)
 def F(n):
-    if n < 3:
-        return n
+    if n < 3:  # Альтернативный способ, пошустрее: создаём функцию под выражение
+        return n  # Перебираем удачные варианты для подстановки
     elif n > 2 and n % 2 == 0:
         return 3 * (n - 1) + F(n - 1) + 5
     elif n > 2 and n % 2 != 0:
@@ -166,17 +166,17 @@ print(func23(60, 10) * func23(10, 2))
 
 print("№24:")  # 40
 with open('C:/for типовые 20 вариантов/24/24var02.txt') as file24:
-    f = file24.read()  # читаем весь файл
-    array = []  # Создаём пустой список, чтобы пихать туда удобоваримое
-    counterMin = float('inf')  # Ищешь минимальное значение - ставь колоссальное по умолчанию, бесконечность тоже в тему
+    f = file24.read().strip()  
+    array = list()  # Создаём пустой список для индексов букв А
+    min_len = float('inf')  # Ищем меньшее - ставим большее, бесконечность - в самый раз
     for index in range(len(f)):
-        if f[index] == 'A':
-            if len(array) < 34:
-                array.append(index) # Пихаем в список букву, если есть место
-            else:
-                counterMin = min(index - array[0] + 1, counterMin)  # Закрепляем найденный минимум  
-                array = array[1:] + [index]  # сдивигаемся далее
-    print(counterMin)
+        if f[index] == 'A':  # Дальше 2 варианта событий:
+            if len(array) < 35 - 1:  # Мест в списке хватает, тогда
+                array.append(index) # Сохраняем индекс буквы
+            else:  # Места кончились, значит можем сравнивать длины
+                min_len = min(index - array[0] + 1, min_len)   # Первое в min'е - НЕСТРОГАЯ длина текущей строки
+                array = array[1:] + [index]  # Выкидываем старейший индекс для усл. 'len == 35' и заново
+print(min_len)
 
 print("№25:")  # Ответ верный
 for length in range(4):

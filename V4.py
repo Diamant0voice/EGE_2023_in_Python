@@ -119,13 +119,43 @@ with open('C:/for типовые 20 вариантов/17/17var04.txt') as file1
         if last_digits.count('3') == 0 and elem1**2 + elem2**2 + elem3**2 > maximum:
             counter += 1
             trio_min = min(trio_min, elem1**2 + elem2**2 + elem3**2)
-    print(counter, trio_min)
+print(counter, trio_min)
 
-print("№19:")  # 
+print("№19:")  # 80
+def heap19(rocks, position):
+    if rocks >= 161 or position > 3:
+        return position == 3
+    elif position % 2 == 0:
+        return heap19(rocks + 1, position + 1) or heap19(rocks * 2, position + 1)
+    else:
+        return heap19(rocks + 1, position + 1) and heap19(rocks * 2, position + 1)
 
-print("№20:")  # 
+for answer19 in range(1, 160 + 1):
+    print(answer19) if heap19(answer19, 1) else None
 
-print("№21:")  # 
+print("№20:")  # 40 79
+def heap20(rocks, position):
+    if rocks >= 161 or position > 4:
+        return position == 4
+    elif position % 2 != 0:
+        return heap20(rocks + 1, position + 1) or heap20(rocks * 2, position + 1)
+    else:
+        return heap20(rocks + 1, position + 1) and heap20(rocks * 2, position + 1)
+
+for answer20 in range(1, 160 + 1):
+    print(answer20) if heap20(answer20, 1) else None
+
+print("№21:")  # 78
+def heap21(rocks, position):
+    if rocks >= 161 or position > 5:
+        return position == 3 or position == 5
+    elif position % 2 == 0:
+        return heap21(rocks + 1, position + 1) or heap21(rocks * 2, position + 1)
+    else:
+        return heap21(rocks + 1, position + 1) and heap21(rocks * 2, position + 1)
+
+for answer21 in range(1, 160 + 1):
+    print(answer21) if heap21(answer21, 1) else None
 
 print("№23:")  # 1760
 func23 = lambda start, end, exc: func23(start - 1, end, exc) + func23(start // 2, end, exc) if start > end and start != exc else start == end
@@ -133,12 +163,12 @@ print(func23(60, 20, 4) * func23(20, 1, 4))
 
 print("№24:")  # 10007
 with open('C:/for типовые 20 вариантов/24/24var04.txt') as file24:
-    f = file24.read().split('AB')
-    counterMax = 0
+    f = file24.read().strip().split('AB')  # ВАЖНО: "сплит" формирует список, действуем нетипично
+    max_len = 0
     for index in range(len(f)):
-        correct_string = ''.join(f[index:index + 22])
-        counterMax = max(counterMax, len(correct_string))
-    print(counterMax + 22 * 2)
+        cur_string = ''.join(f[index:index + 21 + 1])  # Потому что учёт разделённых и нестрого
+        max_len = max(max_len, len(cur_string))  # Здесь лежат НЕ "AB"
+print(max_len + 21 * 2 + 2)  # Cамо кол-во AB и мусор по бокам интервала
 
 print("№25:")  # Ответ верный
 digits = '0123456789'

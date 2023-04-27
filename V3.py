@@ -94,7 +94,7 @@ def treug(n, m, k):
 
 
 for A in range(1, 1000):
-    while True:  # Как в предыдущем варианте, только НЕ МАКС изменили по информации из примечания
+    while True:  # Как в предыдущем варианте, плюсом НЕ МАКС изменили по информации из примечания
         if all(not((treug(x, 11, 18) == (max(x, 5) <= 15)) and (treug(x, A, 5))) for x in range(1, 1000)):
             print(A)
         break
@@ -121,7 +121,7 @@ with open('C:/for типовые 20 вариантов/17/17var03.txt') as file1
         if last_digits.count('0') == 1 and elem1 + elem2 + elem3 < maximum:
             counter += 1
             sums = max(sums, elem1 + elem2 + elem3)
-    print(counter, sums)
+print(counter, sums)
 
 print("№19:")  # 76
 def heap19(rocks1, positions):
@@ -168,21 +168,27 @@ print(func23(50, 20, 10) * func23(20, 1, 10))  # Ради одного "не р�
 
 print("№24:")  # 55
 with open('C:/for типовые 20 вариантов/24/24var03.txt') as file24:
-    f = file24.read().split('AB')
-    counterMin = float('inf')
+    f = file24.read().strip().replace('AB', '_')  # АВ - пара, не выйдет сравнения. Представим чем-то одним
+    array = list()
+    min_len = float('inf')
     for index in range(len(f)):
-        correct_string = ''.join(f"[index:index + 19")
-        counterMin = min(counterMin, len(correct_string))  # Всё ещё ничё не понятно
-    print(counterMin + 19 * 2)
+        if f[index] == '_':
+            if len(array) < 21 - 1:
+                array.append(index)
+            else:
+                min_len = min(index - array[0] + 1, min_len)
+                array = array[1:] + [index]
+print(min_len + 21)  # Символов - пара, возвращаем всё на место
 
 print("№25:")  # Ответ верный
-digits = '0123456789'
-for length in range(4):
+digits = '0123456789'  # Чтобы не спамить, выносим все цифры
+for length in range(4):  # Как понять: 10**0 = 0, 10**1 = 10, ...
     for asterisk in product(digits, repeat=length):
-        for question_mark in digits:
+        for question_mark in digits:  # просто пробуем по цифре
             mask = int(f"32{''.join(asterisk)}21{question_mark}4")
             print(mask, mask // 2049) if mask % 2049 == 0 else None
  
 print("№26:")  # 
 
-print("№27:")  # 
+print("№27:")  #
+
