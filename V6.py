@@ -17,7 +17,13 @@ for holes in product([0, 1], repeat=7):
         for answer2 in permutations('zyxw'):
             print(*answer2, sep='') if [columns(**dict(zip(answer2, variations))) for variations in table] == F else None
 
-print("№5:")  # 
+print("№5:")  # 753
+for N in range(100, 1000):
+    dig1 = N // 100; dig2 = N // 10 % 10; dig3 = N % 10
+    sum1 = dig1 ** 2 + dig2 ** 2; sum2 = dig2 ** 2 + dig3 ** 2
+    R = str(max(sum1, sum2)) + str(min(sum1, sum2))
+    print(N) if R == '7434' else None
+    
 
 print("№6:")  # Ответ: 6488, в сборнике опечатка, проверено Александром Павловым
 screensize(10000, 10000)
@@ -47,13 +53,33 @@ print(counter6)
 update()
 exitonclick()
 
-print("№8:")  # 
+print("№8:")  # 376
+counter = 0
+for let1, let2, let3, let4 in product('АВОПР', repeat=4):
+    counter += 1
+    word = let1 + let2 + let3 + let4
+    if word[0] == 'П':
+        break
+print(counter, word)
 
-print("№12:")  # 
+print("№12:")  # 5
+s = '1' * 2022
+while '11' in s or '555' in s:
+    s = s.replace('11', '555', 1) if '11' in s else s.replace('555', '5', 1)
+print(s)
 
-print("№14:")  # 
+print("№14:")  # 89
+cr = 4**2022 - 2 * 4**1111 + 16**600 + 192
+counter = 0
+while cr > 0:
+    if cr % 4 == 3:
+        counter += 1
+    cr //= 4
+print(counter)
 
 print("№15:")  # 
+def logic(X):
+    return 
 
 print("№16:")  # 968551148
 @lru_cache(None)

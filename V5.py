@@ -18,7 +18,7 @@ for holes in product([0, 1], repeat=7):
             print(*answer2, sep='') if [columns(**dict(zip(answer2, variations)))for variations in table] == F else None
 
 print("№5:")  # 946
-for N in range(100, 1001):
+for N in range(100, 1000):
     dig1 = N // 100; dig2 = N // 10 % 10; dig3 = N % 10  # Остатком отщепляем последнюю цифру, цельняком - первую
     sum1 = dig1**2 + dig2**2; sum2 = dig2**2 + dig3**2  # Суммы квадратов
     R = str(max(sum1, sum2)) + str(min(sum1, sum2)) # В порядке невозрастания 
@@ -107,7 +107,7 @@ def F(n):
         return 3 * F(n - 1)
 print(F(23))
 
-print("№17:")  # 
+print("№17:")  # 60 18555
 with open('C:/for типовые 20 вариантов/17/17var05.txt') as file17:
     numbers = [int(index) for index in file17]
     squares = [index ** 2 for index in range(1, 100 + 1)]
@@ -176,11 +176,11 @@ def divs(number):
     for divider in range(2, int(number ** 0.5) + 1):  # "Не считая 1"
         if number % divider == 0:
             s.add(divider); s.add(number // divider)  # Пройдясь до корня, повторяем с конца (делители симметричны)
-    return sorted(s)  # Делаем красоту
+    return sorted(s)  # Наводим красоту
 
 for number in range(860_000, 870_001):
     d = divs(number)
-    if len(d) > 0:  # ОЧЕНЬ важное ограничение
+    if len(d) > 0:  # ОЧЕНЬ важное ограничение, иначе M = 0
         M = max(d) - min(d)
         print(number, M) if M % 100 == 18 else None  # Берём крайние пять пар
 

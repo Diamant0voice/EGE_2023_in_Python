@@ -71,10 +71,7 @@ print("№12:")  # 1212122
 string = '22' + "1" * 2050 + '22'
 while '211' in string or '112' in string:
     string = string.replace('11', '1', 1)
-    if '21' in string:
-        string = string.replace('21', '12', 1)
-    else:
-        string = string.replace('12', '1', 1)
+    string = string.replace('21', '12', 1) if '21' in string else string.replace('12', '1', 1) 
 print(string)
 
 print("№14:")  # 1015
@@ -90,11 +87,11 @@ def in8(number):  # Альтернативное решение функцией
 print(in8(4**2022 - 6 * 4**522 + 5 * 64**510 - 3 * 2**330 - 100).count('7'))
 
 print('№15:')  # 80
-def logic(x, A):
+def logic(x, A):  # Альтернативный способ, пошустрее: создаём функцию под выражение
     return ((x % 20 == 0) <= (x % 11 != 0)) or (x + A >= 300)
 
 for A in range(1, 1000):
-    if all(logic(x, A) for x in range(1, 1000)):
+    if all(logic(x, A) for x in range(1, 1000)):  # Перебираем удачные варианты для подстановки
         print(A)
         break
     A -= 1
@@ -102,8 +99,8 @@ for A in range(1, 1000):
 print("№16:")  # 987
 @lru_cache(None)
 def F(n):
-    if n < 3:  # Альтернативный способ, пошустрее: создаём функцию под выражение
-        return n  # Перебираем удачные варианты для подстановки
+    if n < 3:
+        return n
     elif n > 2 and n % 2 == 0:
         return 3 * (n - 1) + F(n - 1) + 5
     elif n > 2 and n % 2 != 0:
@@ -171,11 +168,10 @@ with open('C:/for типовые 20 вариантов/24/24var02.txt') as file2
     min_len = float('inf')  # Ищем меньшее - ставим большее, бесконечность - в самый раз
     for index in range(len(f)):
         if f[index] == 'A':  # Дальше 2 варианта событий:
-            if len(array) < 35 - 1:  # Мест в списке хватает, тогда
-                array.append(index) # Сохраняем индекс буквы
-            else:  # Места кончились, значит можем сравнивать длины
-                min_len = min(index - array[0] + 1, min_len)   # Первое в min'е - НЕСТРОГАЯ длина текущей строки
-                array = array[1:] + [index]  # Выкидываем старейший индекс для усл. 'len == 35' и заново
+            array.append(index) # Мест в списке хватает, тогда cохраняем индекс буквы
+            if len(array) == 35:  # Места кончились, значит можем наконец сравнивать длины
+                min_len = min(index - array[0] + 1, min_len)  # Первое в min'е - НЕСТРОГАЯ длина текущей строки
+                array = array[1:]  # Выкидываем старейший индекс для усл. 'len == 35' и заново
 print(min_len)
 
 print("№25:")  # Ответ верный

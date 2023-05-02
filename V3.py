@@ -115,7 +115,7 @@ print("№17")  # 203 99820
 counter = sums = 0
 with open('C:/for типовые 20 вариантов/17/17var03.txt') as file17:
     sequence = [int(numbers) for numbers in file17]
-    maximum = max(number for number in sequence)
+    maximum = max(sequence)
     for elem1, elem2, elem3 in zip(sequence, sequence[1:], sequence[2:]):
         last_digits = str(elem1 % 10) + str(elem2 % 10) + str(elem3 % 10)
         if last_digits.count('0') == 1 and elem1 + elem2 + elem3 < maximum:
@@ -173,16 +173,15 @@ with open('C:/for типовые 20 вариантов/24/24var03.txt') as file2
     min_len = float('inf')
     for index in range(len(f)):
         if f[index] == '_':
-            if len(array) < 21 - 1:
-                array.append(index)
-            else:
+            array.append(index)
+            if len(array) == 21:
                 min_len = min(index - array[0] + 1, min_len)
-                array = array[1:] + [index]
-print(min_len + 21)  # Символов - пара, возвращаем всё на место
+                array = array[1:]
+print(min_len + 21)  # Символов - пара, нужно ещё столько же (НЕ умножить на 2, это другое)
 
 print("№25:")  # Ответ верный
 digits = '0123456789'  # Чтобы не спамить, выносим все цифры
-for length in range(4):  # Как понять: 10**0 = 0, 10**1 = 10, ...
+for length in range(4):
     for asterisk in product(digits, repeat=length):
         for question_mark in digits:  # просто пробуем по цифре
             mask = int(f"32{''.join(asterisk)}21{question_mark}4")
