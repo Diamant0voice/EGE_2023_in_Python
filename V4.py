@@ -163,7 +163,7 @@ print(func23(60, 20, 4) * func23(20, 1, 4))
 
 print("№24:")  # 10007
 with open('C:/for типовые 20 вариантов/24/24var04.txt') as file24:
-    f = file24.read().strip().split('AB')  # ВАЖНО: "сплит" формирует список, действуем нетипично
+    f = file24.read().strip().split('AB')  # ВАЖНО: "сплит" формирует список, поэтому действуем нетипично
     max_len = 0
     for index in range(len(f)):
         cur_string = ''.join(f[index:index + 21 + 1])  # Потому что учёт разделённых и нестрого

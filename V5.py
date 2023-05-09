@@ -91,7 +91,7 @@ A = list()  # Создаём отрезок и пилим имеющиеся
 B = [points for points in range(10, 15 + 1)]
 C = [points for points in range(20, 27 + 1)]
 
-for points in range(1, 1000):  # Базовый перебор
+for points in range(1, 1000):  # Как обычно перебираем
     if logic(points):
         A.append(points)  # (НЕ) подходящие точки в новый отрезок
 print(A[-1] - A[0])  # Длина отрезка - его модуль - разность конца с началом, это и просят
@@ -162,12 +162,12 @@ print("№24:")  # 977
 with open('C:/for типовые 20 вариантов/24/24var05-08.txt') as file24:
     f = file24.read().strip()
     cur_len = max_len = 0
-    for index in range(len(f) - 1):
-        if f[index] + f[index - 1] == '00':
-            cur_len = 1
+    for index in range(len(f) - 1):  # В конце файла нет "следующего" значения для сравнения
+        if f[index] + f[index - 1] == '00':  # Разница с 3 в.: здесь просто нужна длина без лишней комбинации
+            cur_len = 1  # обнуляем строку, ведь нам попалось неблагоприятное
         else:
             cur_len += 1
-            max_len = max(cur_len, max_len)
+            max_len = max(cur_len, max_len) 
 print(max_len)
 
 print("№25:")  # Ответ верный

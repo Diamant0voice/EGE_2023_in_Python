@@ -23,9 +23,8 @@ for N in range(100, 1000):
     sum1 = dig1 ** 2 + dig2 ** 2; sum2 = dig2 ** 2 + dig3 ** 2
     R = str(max(sum1, sum2)) + str(min(sum1, sum2))
     print(N) if R == '7434' else None
-    
 
-print("№6:")  # Ответ: 6488, в сборнике опечатка, проверено Александром Павловым
+print("№6:")  # Ответ: 6488, в сборнике опечатка (проверено Александром Павловым)
 screensize(10000, 10000)
 tracer(0)
 ht()
@@ -77,9 +76,18 @@ while cr > 0:
     cr //= 4
 print(counter)
 
-print("№15:")  # 
-def logic(X):
-    return 
+print("№15:")  # 26
+def logic(x):
+    return not(((x in B) or (x in C)) <= (x in A))
+
+A = list()
+B = [points for points in range(30, 41 + 1)]
+C = [points for points in range(50, 56 + 1)]
+
+for points in range(1, 100):
+    if logic(points):
+        A.append(points)
+print(A[-1] - A[0])
 
 print("№16:")  # 968551148
 @lru_cache(None)
@@ -92,22 +100,83 @@ def F(n):
         return 3 * F(n - 1)
 print(F(35))
 
-print("№17:")  # 
+print("№17:")  # 41 -9786
+with open("C:/for типовые 20 вариантов/17/17var06.txt") as file17:
+    numbers = [int(index) for index in file17]
+    squares = [index ** 2 for index in range(1, 100 + 1)]
+    counter, min_sum = 0, float('inf')
+    for elem1, elem2 in zip(numbers, numbers[1:]):
+        if elem1 in squares or elem2 in squares:
+            counter += 1
+            min_sum = min(min_sum, elem1 + elem2)
+print(counter, min_sum)            
 
-print("№19:")  # 
+print("№19:")  # 88
+def heap19(rocks, position):
+    if rocks >= 177 or position > 3:
+        return position == 3
+    elif position % 2 == 0:
+        return heap19(rocks + 1, position + 1) or heap19(rocks * 2, position + 1)
+    else:
+        return heap19(rocks + 1, position + 1) and heap19(rocks * 2, position + 1)
 
-print("№20:")  # 
+for answer19 in range(1, 176 + 1):
+    print(answer19) if heap19(answer19, 1) else None
 
-print("№21:")  # 
+print("№20:")  # 44 87
+def heap20(rocks, position):
+    if rocks >= 177 or position > 4:
+        return position == 4
+    elif position % 2 != 0:
+        return heap20(rocks + 1, position + 1) or heap20(rocks * 2, position + 1)
+    else:
+        return heap20(rocks + 1, position + 1) and heap20(rocks * 2, position + 1)
+
+for answer20 in range(1, 176 + 1):
+    print(answer20) if heap20(answer20, 1) else None
+
+print("№21:")  # 86
+def heap21(rocks, position):
+    if rocks >= 177 or position > 5:
+        return position == 3 or position == 5
+    elif position % 2 == 0:
+        return heap21(rocks + 1, position + 1) or heap21(rocks * 2, position + 1)
+    else:
+        return heap21(rocks + 1, position + 1) and heap21(rocks * 2, position + 1)
+
+for answer21 in range(1, 176 + 1):
+    print(answer21) if heap21(answer21, 1) else None
 
 print("№23:")  # 639
 func23 = lambda start, end: func23(start + 2, end) + func23(start + 7, end) if start < end else start == end
 print(func23(7, 51))
 
-print("№24:")  # 
+print("№24:")  # 7684
+with open('C:/for типовые 20 вариантов/24/24var05-08.txt') as file24:
+    f = file24.read().strip()
+    cur_len = max_len = 0
+    for index in range(len(f) - 2):
+        if f[index] + f[index - 1] + f[index - 2] == '000':
+            cur_len = 2
+        else:
+            cur_len += 1
+            max_len = max(max_len, cur_len)
+print(max_len)
 
-print("№25:")  # 
+print("№25:")  # Ответ верный
+def divs(number):
+    s = set()
+    for divider in range(2, int(number ** 0.5) + 1):
+         if number % divider == 0:
+             s.add(divider); s.add(number // divider)
+    return sorted(s)
+
+for number in range(860_000, 870_001):
+    d = divs(number)
+    if len(d) > 0:
+        M = max(d) - min(d)
+        print(number, M) if M % 100 == 30 else None
 
 print("№26:")  # 
 
-print("№27:")  # 
+print("№27:")  #
