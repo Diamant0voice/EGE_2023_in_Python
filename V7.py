@@ -18,7 +18,11 @@ for holes in product([0, 1], repeat=7):
         for answer2 in permutations('xyzw'):
             print(*answer2, sep='') if [columns(**dict(zip(answer2, variations))) for variations in table] == F else None
 
-print("№5:")  # 
+print("№5:")  # 876
+for N in range(100, 1000): 
+    dig1 = N // 100; dig2 = N // 10 % 10; dig3 = N % 10
+    new = str(max(dig1 * dig2 * dig3, dig1 + dig2 + dig3)) + str(min(dig1 + dig2 + dig3, dig1 * dig2 * dig3))
+    print(N) if new == "33621" else None
 
 print("№6:")  # 2476
 screensize(10000, 10000)
