@@ -53,7 +53,12 @@ exitonclick()
 
 print("№8:")  # 
 
-print("№12:")  # 
+print("№12:")  # 11
+string = '1' * 50
+while '11111' in string or '15' in string:
+    string = string.replace('11111', '15', 1) if '11111' in string else string.replace('15', '1', 1)
+print(string)
+
 
 print("№14:")  # 
 
@@ -72,11 +77,42 @@ print(F(12))
 
 print("№17:")  # 
 
-print("№19:")  # 
+print("№19:")  # 100
+def heap19(rocks, position):
+    if rocks >= 201 or position > 3:
+        return position == 3
+    elif position % 2 == 0:
+        return heap19(rocks + 1, position + 1) or heap19(rocks * 2, position + 1)
+    else:
+        return heap19(rocks + 1, position + 1) and heap19(rocks * 2, position + 1)
 
-print("№20:")  # 
+for answer19 in range(1, 200 + 1):
+    print(answer19) if heap19(answer19, 1) else None
 
-print("№21:")  # 
+print("№20:")  # 50 99
+def heap20(rocks, position):
+    if rocks >= 201 or position > 4:
+        return position == 4
+    elif position % 2 != 0:
+        return heap20(rocks + 1, position + 1) or heap20(rocks * 2, position + 1)
+    else:
+        return heap20(rocks + 1, position + 1) and heap20(rocks * 2, position + 1)
+
+for answer20 in range(1, 200 + 1):
+    print(answer20) if heap20(answer20, 1) else None
+
+print("№21:")  # 98
+def heap21(rocks, position):
+    if rocks >= 201 or position > 5:
+        return position == 3 or position == 5
+    elif position % 2 == 0:
+        return heap21(rocks + 1, position + 1) or heap21(rocks * 2, position + 1)
+    else:
+        return heap21(rocks + 1, position + 1) and heap21(rocks * 2, position + 1)
+
+for answer21 in range(1, 200 + 1):
+    print(answer21) if heap21(answer21, 1) else None
+
 
 print("23:")  # 5411
 func23 = lambda start, end: func23(start + 2, end) + func23(start + 10, end) if start < end else start == end

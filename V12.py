@@ -20,14 +20,14 @@ for holes in product([0, 1], repeat=5):
 
 print("№5:")  # 
 
-print("№6:")  # Ответ: 315, в сборнике опечатка. Размером с задание.
+print("№6:")  # Ответ: 318, в сборнике опечатка. Размером с задание.
 screensize(7000, 7000)
 speed(10)
 ht()
 pensize(0.1)
 tracer(0)
 color("grey", "red")
-scale = 40
+scale = 150
 counter6 = 0
 
 begin_fill()
@@ -39,7 +39,7 @@ fd(48 * scale)
 rt(90)
 fd(4 * scale)
 rt(30)
-for rep in range(8):  # Уже попахивает, да? 
+for rep in range(8):
     fd(6 * scale)
     rt(120)
     fd(6 * scale)
@@ -48,8 +48,8 @@ end_fill()
 up()
 
 canvas = getcanvas()
-for X in range(-250 * scale, 250 * scale, scale):
-    for Y in range(-250 * scale, 250 * scale, scale):
+for X in range(-100 * scale, 450 * scale, scale):
+    for Y in range(-100 * scale, 450 * scale, scale):
         scan = canvas.find_overlapping(X, Y, X, Y)
         counter6 += 1 if len(scan) == 1 and scan[0] == 5 else 0
 
@@ -58,6 +58,11 @@ update()
 exitonclick()
 
 print("№8:")  # 
+counter = 0
+for digit in product('01234', repeat=3):
+    number = ''.join(digit)
+    counter += 1 if number[0] != '0' and number[0] >= number[1] >= number[2] else 0
+print(counter)    
 
 print("№12:")  # 
 

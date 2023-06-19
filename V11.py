@@ -89,7 +89,7 @@ print(func23(33, 9) * func23(9, 1))
 
 print("№24:")  # 34
 with open('C:/for типовые 20 вариантов/24/24var09-13.txt') as file24:
-    f = file24.read()
+    f = file24.read().strip()
     max_len = cur_len = 0
     for symbol in f:
         if symbol != 'Z':

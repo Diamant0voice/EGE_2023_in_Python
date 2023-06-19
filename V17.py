@@ -18,7 +18,14 @@ for holes in product([0, 1], repeat=6):
         for answer2 in permutations('xyzw'):
             print(*answer2, sep='') if [columns(**dict(zip(answer2, variations))) for variations in table] == F else None
 
-print("№5:")  # 
+print("№5:")  #
+for N in range(1, 100):
+    N = bin(N)[2:]
+    N = N.replace('0', 'a').replace('1', 'b')
+    N = N.replace('a', '01').replace('b', '10')
+    if int(N, 2) > 63:
+        print(int(N, 2))
+        break
 
 print("№6:")  # 153
 screensize(4000, 4000)
@@ -55,6 +62,15 @@ exitonclick()
 print("№8:")  # 
 
 print("№12:")  # 
+for n in range(1, 10):
+    string = '>' + '0' * 15 + '1' * n + '2' * 15
+    while '>0' in string or '>1' in string or '>2' in string:
+        string = string.replace('>0', '22>', 1) if '>0' in string else string
+        string = string.replace('>1', '2>', 1) if '>1' in string else string
+        string = string.replace('>2', '1>', 1) if '>2' in string else string
+    if (string.count('2') + string.count('1')) % 2 != 0 and (string.count('2') + string.count('1')) % 3 != 0:
+        print(n)  # перебор НЕ корректен, есть другие делители, но писать их перебор кукож, лучше поскладывать
+        break
 
 print("№14:")  # 
 

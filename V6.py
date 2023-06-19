@@ -171,7 +171,7 @@ def divs(number):
              s.add(divider); s.add(number // divider)
     return sorted(s)
 
-for number in range(860_000, 870_001):
+for number in range(860_000, 865_001):
     d = divs(number)
     if len(d) > 0:
         M = max(d) - min(d)

@@ -18,7 +18,12 @@ for holes in product((0, 1), repeat=6):
         for answer2 in permutations('wxzy'):
             print(*answer2, sep='') if [columns(**dict(zip(answer2, variations))) for variations in table] == F else None
 
-print("№5:")  # 
+print("№5:")  # 106
+for N in range(1, 100):
+    R = N * 4 + N % 4
+    if R < 111:
+        print(R)
+        
 
 print('№6:')  # Ответ: 64
 screensize(4000, 4000)
@@ -45,21 +50,45 @@ for X in range(-50, 50):
 
 update()
 exitonclick()
-# По ЗАДУМКЕ, так решаться должно было всё, но по факту, данный способ актуален лишь пару раз, да и не стоит он затрачиваемых усилий.
+# По ЗАДУМКЕ, так решаться должно всё, но по факту данный способ актуален лишь пару раз, и не стоит таких усилий.
+
+print("№8:")  # 54
+counter = 0
+for symbol in product('ABCD', repeat=4):
+    code = ''.join(symbol)
+    counter += 1 if code.count('A') == 2 else 0
+print(counter)
 
 print("№10:")  # 2
 kr = 0
-with open('C:/for типовые 20 вариантов/10/Отцы и дети.txt', 'r') as book:
+with open('C:/for типовые 20 вариантов/DONE/10/Отцы и дети.txt', 'r') as book:
     for word in book:
         if "Россия" in word:
             kr += 1
 print(kr)
 
-print("№8:")  # 
-
 print("№12:")  # 
+def isP(n):
+    return n > 1 and all(n % divider != 0 for divider in range(2, int(n ** 0.5) + 1))
 
-print("№14:")  # 
+for n in range(1, 10): 
+    string = '>' + '1' * 23 + '2' * n + '3' * 25
+    while '>1' in string or '>2' in string or '>3' in string:
+        string = string.replace('>1', '1>', 1) if '>1' in string else string
+        string = string.replace('>2', '>3', 1) if '>2' in string else string
+        string = string.replace('>3', '>11', 1) if '>3' in string else string
+    if isP(string.count('1') + string.count('2') + string.count('3')):
+        print(n)
+        break
+
+print("№14:")  # 196
+counter = 0
+cr = 3**2017 + 9**1000 + 9**100 - 3**4
+while cr > 0:
+    if cr % 3 == 2:
+        counter += 1
+    cr //= 3
+print(counter)
 
 print("№15:")  # 
 
@@ -91,7 +120,19 @@ print(func23(2, 10, 19) * func23(10, 26, 19))
 print("№24:")  # 
 
 print("№25:")  # 
+def isPrime(number):
+    return number > 1 and all(number % divider != 0 for divider in range(2, int(number ** 0.5) + 1))
 
-print("№26:")  # 
+def divs(number):
+    s = set()
+    for divider in range(2, int(number ** 0.5) + 1):
+        if number % divider == 0:
+            s.add(divider); s.add(number // divider)
+    return sorted(s)
+
+for number in range(550_001, 555_001):
+    d = divs(number)
+    S = sum([index for index in d if isPrime(index)])
+    print(number, S) if S % 10 == 7 else None
 
 print("№27:")  # 

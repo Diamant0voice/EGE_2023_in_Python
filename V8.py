@@ -51,7 +51,12 @@ print("№8:")  #
 print(len([digits for digits in product('01234567', repeat=5) if digits[0] != '0' and digits.count('4') == 2
    and all('4' + fail not in (number := ''.join(digits)) and fail + '4' not in number for fail in '1357')]))
 
-print("№12:")  # 
+print("№12:")  # 1
+string = '1' * 65
+while '11111' in string or '15' in string:
+    string = string.replace('11111', '15', 1) if '11111' in string else string.replace('15', '1', 1)
+print(string)
+
 
 print("№14:")  # 
 

@@ -18,7 +18,11 @@ for holes in product((0, 1), repeat=6):
         for answer2 in permutations('yxwz'):
             print(*answer2, sep='') if [columns(**dict(zip(answer2, variations))) for variations in table] == F else None
 
-print("№5:")  # 
+print("№5:")  # 96
+for N in range(1, 100):
+    R = (N * 4) + (N % 4)
+    if R < 100:
+        print(R)  
 
 print("№6:")  # 269
 screensize(5000, 5000)
@@ -32,7 +36,7 @@ counter6 = 0
 begin_fill()
 lt(90)
 rt(300)
-for rep in range(4):  # И всё вновь работает
+for rep in range(4):
     fd(10 * scale)
     rt(120)
     fd(10 * scale)
@@ -85,7 +89,21 @@ print(func23(3, 12, 23) * func23(12, 27, 23))
 
 print("№24:")  # 
 
-print("№25:")  # 
+print("№25:")  # Ответ верный
+def isPrime(number):
+    return number > 1 and all(number % divider != 0 for divider in range(2, int(number ** 0.5) + 1))
+
+def divs(number):
+    s = set()
+    for divider in range(2, int(number ** 0.5) + 1):
+        if number % divider == 0:
+            s.add(divider); s.add(number // divider)
+    return sorted(s)
+
+for number in range(550_001, 556_001):
+    d = divs(number)
+    S = sum([index for index in d if isPrime(index)])
+    print(number, S) if S % 10 == 1 else None
 
 print("№26:")  # 
 

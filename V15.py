@@ -55,8 +55,17 @@ update()
 exitonclick()
 
 print("№8:")  # 
+counter = 0
+for digit in product('123456', repeat=5):
+    code = ''.join(digit)
+    counter += 1 if code.count('1') == 1 else 0
+print(counter)
 
-print("№12:")  # 
+print("№12:")  #
+string = '1' + '2' * 70
+while '12' in string or '1' in string:
+    string = string.replace('12', '221', 1) if '12' in string else string.replace('1', '2', 1)
+print(string.count('2'))
 
 print("№14:")  # 47594
 print(ascii_uppercase)  # Забыли алфавитный порядок латиницы? Выведите её на экран b и копируйте!
@@ -65,7 +74,13 @@ for X in "0123456789ABCDEFGHIJK":
         operand = int(f'12{Y}{X}9', 21) + int(f'36{Y}99', 21)
         print(operand // 18) if operand % 18 == 0 and Y == "5" else None  # Y - строковый тип, и вся прога - о строках, помним 
 
-print("№15:")  #
+print("№15:")  # 25
+def logic(x, y, A):
+    return ((x < A) and (y < A) and (x * y > 601))
+
+for A in range(1, 100):
+    if all(not(logic(x, y, A) for x in range(1, 1000) for y in range(1, 1000)):
+           print(A)  # not - чтобы "тождественно ложно"
 
 print("№16:")  # 1450
 @lru_cache(None)

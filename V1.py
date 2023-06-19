@@ -75,9 +75,9 @@ exitonclick()  # Выход по нажатию, чтобы окно не сво
 print('№7:')  # Ответ: 4
 file_size = 512 * 750; file_compr_kbyte = 80; file_compr_ratio = 100
 file_orig_ratio = 100 + 65; file_orig_kbyte = (file_orig_ratio * file_compr_kbyte) / file_compr_ratio
-file_orig_bit = file_orig_kbyte * 2**13
+file_orig_bit = file_orig_kbyte * 1 * 8 * 1024  # * 2**13 
 i = math.floor(file_orig_bit / file_size)  # Округление в меньшую сторону, чтобы после уменьшения величины объёма хватило
-print(2**i)  # i - лишь глубина кодирования, степень двойки, не забываем (см. номер 11)
+print(2**i)  # i - лишь глубина кодирования, степень двойки
 
 print('№8:')  # Ответ: 612
 counter = 0
@@ -100,7 +100,7 @@ with open('C:/for типовые 20 вариантов/9/z9_v1-4.txt', "r") as f
 
 print('ТИП №11:')  # Ответ: 2800
 alp, length, users = 500 + 10, 711, 3584  # Краткая форма инициализации переменных, быстро, но стрёмно
-pass_byte_size = math.ceil((math.ceil(math.log2(alp)) * length) / 8)  # По формуле Хартли берём i, и округляем наверх, раз увеличиваем
+pass_byte_size = math.ceil((math.ceil(math.log2(alp)) * length) / 8)  # По формуле Хартли берём i, и округляем наверх, раз повышаем разряд
 all_pass = (pass_byte_size * users) / 1024
 print(int(all_pass))
 
@@ -158,7 +158,7 @@ def heap19(rocks1, positions):
         return positions == 3
     if positions % 2 == 0:  # Мы на 1-ой позиции, дальше будет 2-ая, чётная, на них и смотрим
         return heap19(rocks1 + 1, positions + 1) or heap19(rocks1 * 2, positions + 1)
-    else:  # Если есть "ПРИ ЛЮБОМ ХОДЕ ПЕРВОГО ВТОРОЙ МОЖЕТ ВЫИГРАТЬ ЗА 1 ХОД", то учитываем чужие ходы через И
+    else:  # Если есть "ПРИ ЛЮБОМ ХОДЕ ПЕРВОГО ВТОРОЙ МОЖЕТ ВЫИГРАТЬ ЗА 1 ХОД", то учитываем И чужие ходы
         return heap19(rocks1 + 1, positions + 1) and heap19(rocks1 * 2, positions + 1)
 
 
