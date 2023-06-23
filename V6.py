@@ -101,7 +101,7 @@ def F(n):
 print(F(35))
 
 print("№17:")  # 41 -9786
-with open("C:/for типовые 20 вариантов/17/17var06.txt") as file17:
+with open("17var06.txt") as file17:
     numbers = [int(index) for index in file17]
     squares = [index ** 2 for index in range(1, 100 + 1)]
     counter, min_sum = 0, float('inf')
@@ -152,7 +152,7 @@ func23 = lambda start, end: func23(start + 2, end) + func23(start + 7, end) if s
 print(func23(7, 51))
 
 print("№24:")  # 7684
-with open('C:/for типовые 20 вариантов/24/24var05-08.txt') as file24:
+with open('24var05-08.txt') as file24:
     f = file24.read().strip()
     cur_len = max_len = 0
     for index in range(len(f) - 2):
@@ -176,7 +176,3 @@ for number in range(860_000, 865_001):
     if len(d) > 0:
         M = max(d) - min(d)
         print(number, M) if M % 100 == 30 else None
-
-print("№26:")  # 
-
-print("№27:")  #

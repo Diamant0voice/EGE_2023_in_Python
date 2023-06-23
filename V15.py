@@ -110,7 +110,3 @@ print(func23(1, 7) * func23(7, 30))
 print("№24:")  # 
 
 print("№25:")  # 
-
-print("№26:")  # 
-
-print("№27:")  # 

@@ -59,7 +59,6 @@ while '11111' in string or '15' in string:
     string = string.replace('11111', '15', 1) if '11111' in string else string.replace('15', '1', 1)
 print(string)
 
-
 print("№14:")  # 
 
 print("№15:")  # 
@@ -133,7 +132,3 @@ for number in range(799_999, 790_000, -1):
     if len(d) > 0:
         M = max(d) - min(d)
         print(number, M) if M % 17 == 0 else None
-
-print("№26:")  # 
-
-print("№27:")  # 

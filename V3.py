@@ -113,7 +113,7 @@ print(F(24))
 
 print("№17")  # 203 99820
 counter = sums = 0
-with open('C:/for типовые 20 вариантов/17/17var03.txt') as file17:
+with open('17var03.txt') as file17:
     sequence = [int(numbers) for numbers in file17]
     maximum = max(sequence)
     for elem1, elem2, elem3 in zip(sequence, sequence[1:], sequence[2:]):
@@ -167,7 +167,7 @@ func23 = lambda start, end, exception: func23(start - 1, end, exception) + func2
 print(func23(50, 20, 10) * func23(20, 1, 10))  # Ради одного "не равно" буквами сорим, но что поделать
 
 print("№24:")  # 55
-with open('C:/for типовые 20 вариантов/24/24var03.txt') as file24:
+with open('24var03.txt') as file24:
     f = file24.read().strip().replace('AB', '_')  # АВ - пара, не выйдет сравнения. Представим чем-то одним
     array = list()
     min_len = float('inf')
@@ -187,7 +187,3 @@ for length in range(4):
             mask = int(f"32{''.join(asterisk)}21{question_mark}4")
             print(mask, mask // 2049) if mask % 2049 == 0 else None
  
-print("№26:")  # 
-
-print("№27:")  #
-

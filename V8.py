@@ -87,7 +87,3 @@ print(func23(7, 71))
 print("№24:")  # 
 
 print("№25:")  # 
-
-print("№26:")  # 
-
-print("№27:")  # 

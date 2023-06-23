@@ -88,7 +88,7 @@ func23 = lambda start, end: func23(start - 1, end) + func23(start // 3, end) if 
 print(func23(33, 9) * func23(9, 1))
 
 print("№24:")  # 34
-with open('C:/for типовые 20 вариантов/24/24var09-13.txt') as file24:
+with open('24var09-13.txt') as file24:
     f = file24.read().strip()
     max_len = cur_len = 0
     for symbol in f:
@@ -99,7 +99,3 @@ with open('C:/for типовые 20 вариантов/24/24var09-13.txt') as fi
 print(max_len)
 
 print("№25:")  # 
-
-print("№26:")  # 
-
-print("№27:")  # 

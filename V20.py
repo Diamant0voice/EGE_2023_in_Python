@@ -134,5 +134,3 @@ for number in range(550_001, 555_001):
     d = divs(number)
     S = sum([index for index in d if isPrime(index)])
     print(number, S) if S % 10 == 7 else None
-
-print("№27:")  # 

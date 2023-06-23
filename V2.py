@@ -109,7 +109,7 @@ print(F(35))
 
 print("№17:")  # 4 9994000936
 counter = squares = 0
-with open('C:/for типовые 20 вариантов/17/17var02.txt') as file17:
+with open('17var02.txt') as file17:
     file17 = [int(num) for num in file17]
     maximum = max(file17)
     for number, number_next in zip(file17, file17[1:]):
@@ -162,7 +162,7 @@ func23 = lambda start, end: func23(start - 1, end) + func23(start // 2, end) if 
 print(func23(60, 10) * func23(10, 2))
 
 print("№24:")  # 40
-with open('C:/for типовые 20 вариантов/24/24var02.txt') as file24:
+with open('24var02.txt') as file24:
     f = file24.read().strip()  
     array = list()  # Создаём пустой список для индексов букв А
     min_len = float('inf')  # Ищем меньшее - ставим большее, бесконечность - в самый раз
@@ -179,7 +179,3 @@ for length in range(4):
     for random_digit in product('0123456789', repeat=length):
         mask = int(f"32{''.join(random_digit)}823")
         print(mask, mask // 123) if mask % 123 == 0 else None
-
-print("№26:")  # 
-
-print("№27:")  # 

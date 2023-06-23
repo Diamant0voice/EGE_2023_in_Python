@@ -111,7 +111,7 @@ print(F(39))
 
 print("№17:")  # 2936 75058186
 counter, trio_min = 0, float('inf')
-with open('C:/for типовые 20 вариантов/17/17var04.txt') as file17:
+with open('17var04.txt') as file17:
     sequence = [int(num) for num in file17]
     maximum = max(number for number in sequence)
     for elem1, elem2, elem3 in zip(sequence, sequence[1:], sequence[2:]):
@@ -162,7 +162,7 @@ func23 = lambda start, end, exc: func23(start - 1, end, exc) + func23(start // 2
 print(func23(60, 20, 4) * func23(20, 1, 4))
 
 print("№24:")  # 10007
-with open('C:/for типовые 20 вариантов/24/24var04.txt') as file24:
+with open('24var04.txt') as file24:
     f = file24.read().strip().split('AB')  # ВАЖНО: "сплит" формирует список, поэтому действуем нетипично
     max_len = 0
     for index in range(len(f)):
@@ -177,7 +177,3 @@ for length in range(4):
         for question_mark in digits:
             mask = int(f"33{''.join(asterisk)}21{question_mark}7")
             print(mask, mask // 2079) if mask % 2079 == 0 else None
-
-print("№26:")  # 
-
-print("№27:")  # 

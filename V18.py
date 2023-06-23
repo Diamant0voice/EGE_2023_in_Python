@@ -86,7 +86,3 @@ print(func23(3, 8) * func23(8, 11) * func23(11, 14))
 print("№24:")  # 
 
 print("№25:")  # 
-
-print("№26:")  # 
-
-print("№27:")  # 
